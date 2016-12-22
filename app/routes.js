@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 /* IMPORT */
-import Root from './components/Root';
-import Home from './components/Home';
+// import Root from './components/Root';
+// import Home from './components/Home';
+
+import * as Components from './index-components';
+
 // import Login from './components/Login';
 // import Signup from './components/Signup';
 // import UserList from './components/User/UserList';
@@ -19,9 +22,9 @@ import Home from './components/Home';
 
 const Routes = () => (
   <Router history={browserHistory}>
-    <Route path="/" component={Root}>
-      <IndexRoute component={Home} />      
-      <Route path="*" component={Home} />
+    <Route path="/" component={Components.Root}>
+      <IndexRoute component={Components.Home} />      
+      <Route path="*" component={Components.Home} />
     </Route>
   </Router>
 );

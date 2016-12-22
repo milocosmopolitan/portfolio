@@ -1,3 +1,1 @@
-/*
- * Default Blank Reducer 
- */
+// this is reducer

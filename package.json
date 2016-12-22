@@ -41,6 +41,6 @@
     "webpack": "^1.14.0"
   },
   "devDependencies": {
-    "exact-cli": "0.0.2"
+    "exact-cli": "0.0.3"
   }
 }

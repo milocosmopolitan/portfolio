@@ -1,3 +1,1 @@
-/*
- * Default Blank Actions 
- */
+// this is actions
