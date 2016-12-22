@@ -1,6 +1,6 @@
 /* IMPORT */
-import TestReducer from './reducers/Test/Test-reducer';
-import RootReducer from './reducers/Root/Root-reducer';
+import TestReducer from './components/Test/Test-reducer';
+import RootReducer from './components/Root/Root-reducer';
 
 /* EXPORT */
 export const Test = TestReducer;

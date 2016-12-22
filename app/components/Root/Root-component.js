@@ -18,6 +18,7 @@ class RootComponent extends Component {
     
 		return (
 			<div className="container">
+			Root
 			</div>
 		);
 	}

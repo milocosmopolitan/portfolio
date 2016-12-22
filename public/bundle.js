@@ -850,12 +850,18 @@
 	 * will remain to ensure logic does not differ in production.
 	 */
 	
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
+	var validateFormat = function validateFormat(format) {};
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  validateFormat = function validateFormat(format) {
 	    if (format === undefined) {
 	      throw new Error('invariant requires an error message argument');
 	    }
-	  }
+	  };
+	}
+	
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
 	
 	  if (!condition) {
 	    var error;
@@ -24176,16 +24182,22 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Post = undefined;
+	exports.Root = exports.Test = undefined;
 	
-	var _PostReducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/Post/Post-reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _TestReducer = __webpack_require__(275);
 	
-	var _PostReducers2 = _interopRequireDefault(_PostReducers);
+	var _TestReducer2 = _interopRequireDefault(_TestReducer);
+	
+	var _RootReducer = __webpack_require__(276);
+	
+	var _RootReducer2 = _interopRequireDefault(_RootReducer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/* EXPORT */
-	var Post = exports.Post = _PostReducers2.default; /* IMPORT */
+	/* IMPORT */
+	var Test = exports.Test = _TestReducer2.default;
+	var Root = exports.Root = _RootReducer2.default;
 
 /***/ },
 /* 217 */
@@ -24205,12 +24217,14 @@
 	
 	var _reactRouter = __webpack_require__(218);
 	
+	var _indexComponents = __webpack_require__(271);
+	
+	var Components = _interopRequireWildcard(_indexComponents);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	/* IMPORT */
-	
-	// import Root from './components/Root';
-	// import Home from './components/Home';
 	// import Login from './components/Login';
 	// import Signup from './components/Signup';
 	// import UserList from './components/User/UserList';
@@ -24228,20 +24242,18 @@
 	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(
 	      _reactRouter.Route,
-	      { path: '/', component: Root },
-	      _react2.default.createElement(_reactRouter.IndexRoute, { component: Home }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'login', component: Login }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: Signup }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'users', component: UserList }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'users/:id', component: UserDetail }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'stories', component: StoryList }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'stories/:id', component: StoryDetail }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '*', component: Home })
+	      { path: '/', component: Components.Root },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: Components.Home }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '*', component: Components.Home })
 	    )
 	  );
 	};
 	
 	/* -----------------    CONTAINER     ------------------ */
+	
+	/* IMPORT */
+	// import Root from './components/Root';
+	// import Home from './components/Home';
 	
 	var mapProps = null;
 	
@@ -29049,22 +29061,200 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Post = exports.App = undefined;
+	exports.Root = exports.Home = exports.Test = undefined;
 	
-	var _App = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/App\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _TestComponent = __webpack_require__(272);
 	
-	var _App2 = _interopRequireDefault(_App);
+	var _TestComponent2 = _interopRequireDefault(_TestComponent);
 	
-	var _Post = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/Post\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _HomeComponent = __webpack_require__(273);
 	
-	var _Post2 = _interopRequireDefault(_Post);
+	var _HomeComponent2 = _interopRequireDefault(_HomeComponent);
+	
+	var _RootComponent = __webpack_require__(274);
+	
+	var _RootComponent2 = _interopRequireDefault(_RootComponent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/* EXPORT */
-	/* IMPORT */
-	var App = exports.App = _App2.default;
-	var Post = exports.Post = _Post2.default;
+	var Test = exports.Test = _TestComponent2.default; /* IMPORT */
+	var Home = exports.Home = _HomeComponent2.default;
+	var Root = exports.Root = _RootComponent2.default;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(178);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Container Component
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * ====================
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.vpnqg5gly
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	/* -----------------    COMPONENT     ------------------ */
+	
+	var TestComponent = function (_Component) {
+		_inherits(TestComponent, _Component);
+	
+		function TestComponent(props) {
+			_classCallCheck(this, TestComponent);
+	
+			return _possibleConstructorReturn(this, (TestComponent.__proto__ || Object.getPrototypeOf(TestComponent)).call(this, props));
+		}
+	
+		_createClass(TestComponent, [{
+			key: 'render',
+			value: function render() {
+	
+				return _react2.default.createElement('div', { className: 'container' });
+			}
+		}]);
+	
+		return TestComponent;
+	}(_react.Component);
+	
+	/* -----------------    CONTAINER     ------------------ */
+	
+	var mapState = function mapState(_ref, ownProps) {
+		_objectDestructuringEmpty(_ref);
+	
+		return {};
+	};
+	
+	var mapDispatch = {};
+	
+	exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)(TestComponent);
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  return _react2.default.createElement("div", { className: "container-fluid" });
+	}; /*
+	    * Stateless Functional Component
+	    * =====================================
+	    * https://medium.com/@housecor/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc#.7qmv5qk1o
+	    */
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(178);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Container Component
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * ====================
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.vpnqg5gly
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	/* -----------------    COMPONENT     ------------------ */
+	
+	var RootComponent = function (_Component) {
+		_inherits(RootComponent, _Component);
+	
+		function RootComponent(props) {
+			_classCallCheck(this, RootComponent);
+	
+			return _possibleConstructorReturn(this, (RootComponent.__proto__ || Object.getPrototypeOf(RootComponent)).call(this, props));
+		}
+	
+		_createClass(RootComponent, [{
+			key: 'render',
+			value: function render() {
+	
+				return _react2.default.createElement(
+					'div',
+					{ className: 'container' },
+					'Root'
+				);
+			}
+		}]);
+	
+		return RootComponent;
+	}(_react.Component);
+	
+	/* -----------------    CONTAINER     ------------------ */
+	
+	var mapState = function mapState(_ref, ownProps) {
+		_objectDestructuringEmpty(_ref);
+	
+		return {};
+	};
+	
+	var mapDispatch = {};
+	
+	exports.default = (0, _reactRedux.connect)(mapState, mapDispatch)(RootComponent);
+
+/***/ },
+/* 275 */
+/***/ function(module, exports) {
+
+	// this is reducer
+	"use strict";
+
+/***/ },
+/* 276 */
+/***/ function(module, exports) {
+
+	// this is reducer
+	"use strict";
 
 /***/ }
 /******/ ]);

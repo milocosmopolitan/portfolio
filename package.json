@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "server/index.js",
-  "preferGlobal": true,  
+  "preferGlobal": true,
   "bin": {
     "exact": "node_modules/exact-cli/index.js"
   },
@@ -11,7 +11,7 @@
     "start": "webpack -w & nodemon --watch server -e js,html server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli-init": "PATH=$(npm bin):$PATH exact && alias npm-exec=\"PATH=$(npm bin):$PATH\" && alias exact=\"npm-exec exact\"",
-    "postinstall": "npm run cli-init"    
+    "postinstall": "npm run cli-init"
   },
   "author": "Milo Kang <milowebmaster@gmail.com>",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "babel-preset-react": "^6.16.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
+    "exact-cli": "0.0.3",
     "express": "^4.14.0",
     "lodash": "^4.17.2",
     "nodemon": "^1.11.0",
