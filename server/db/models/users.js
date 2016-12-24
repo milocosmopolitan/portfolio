@@ -1,19 +1,33 @@
 'use strict';
 
+const Sequelize = require('sequelize');
 const db = require('../db');
-const DataTypes = db.Sequelize;
 
 module.exports = db.define('users', {
-  firstname: {
-    type: DataTypes.STRING
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
   lastname: {
-    type: DataTypes.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   email: {
-    type: DataTypes.STRING
+    type: Sequelize.STRING,
+    unique: true,
+    validate: {
+      isEmail: true,
+      notNull: true
+    }
   },
   password: {
-    type: DataTypes.STRING
+    type: Sequelize.STRING,
+    validate: {
+      notNull: true,
+      len: [5, 25]
+    }
+  },
+  role: {
+    type: Sequelize.ENUM('Admin', 'Guest')
   }
 });
