@@ -1,20 +1,25 @@
 {
-  "name": "exact.io",
+  "name": "portfolio",
   "version": "0.0.1",
   "description": "",
   "main": "server/index.js",
   "preferGlobal": true,
+  "author": "Milo Kang <milowebmaster@gmail.com>",
+  "contributors": [{
+    "name": "Dan Kang"
+  },{
+    "name": "Jimmy Wang"
+  }],
   "bin": {
     "exact": "node_modules/exact-cli/index.js"
   },
   "scripts": {
-    "start": "webpack -w & nodemon --watch server -e js,html server/index.js",
+    "start": "webpack -w & gulp sass:watch & nodemon --watch server -e js,html server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli-init": "PATH=$(npm bin):$PATH exact && alias npm-exec=\"PATH=$(npm bin):$PATH\" && alias exact=\"npm-exec exact\"",
-    "db-init": "pg-init starter",
-    "postinstall": "npm run cli-init"
-  },
-  "author": "Milo Kang <milowebmaster@gmail.com>",
+    "db-init": "./db-init.sh",
+    "postinstall": "npm run db-init && npm run cli-init"
+  },  
   "license": "ISC",
   "dependencies": {
     "babel": "^6.5.2",
@@ -26,6 +31,8 @@
     "body-parser": "^1.15.2",
     "exact-cli": "0.0.3",
     "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.0.0",
     "lodash": "^4.17.2",
     "nodemon": "^1.11.0",
     "pg": "^6.1.0",

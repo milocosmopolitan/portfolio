@@ -7,6 +7,17 @@
 import React from 'react';
 
 export default () => (
-  <div className="container-fluid">
+  <div>
+  	<section id="about" className="fullHeight">
+      About
+    </section>
+    {/*<Projects />*/}
+    <section id="projects" className="fullHeight">
+      Projects
+    </section>
+    {/*<Contact />*/}
+    <section id="contact" className="fullHeight">
+      Contacts
+    </section>
   </div>
 );
