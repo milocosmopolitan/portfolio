@@ -4,8 +4,8 @@
 // so any other part of the application could call sequelize.model('Song')
 // to get access to the Song model.
 
-
-const Posts = require('./Posts');
+// let's keep the const name for Model to be singular
+const Post = require('./Posts');
 const User = require('./Users');
 
 // Form the associations
@@ -13,6 +13,6 @@ const User = require('./Users');
 // exported just in case, but can also be fetched via db.model('Album') etc.
 
 module.exports = {
-  Posts: Posts,
+  Post: Posts,
   User: User
 };
