@@ -11,7 +11,8 @@
     "start": "webpack -w & nodemon --watch server -e js,html server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli-init": "PATH=$(npm bin):$PATH exact && alias npm-exec=\"PATH=$(npm bin):$PATH\" && alias exact=\"npm-exec exact\"",
-    "postinstall": "npm run cli-init"
+    "db-init": "./db-init.sh",
+    "postinstall": "npm run cli-init && npm run db-init"
   },
   "author": "Milo Kang <milowebmaster@gmail.com>",
   "license": "ISC",

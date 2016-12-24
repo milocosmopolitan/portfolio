@@ -5,14 +5,14 @@
 // to get access to the Song model.
 
 
-const Post = require('./posts');
-const User = require('./users');
+const Posts = require('./Posts');
+const User = require('./Users');
 
 // Form the associations
 
 // exported just in case, but can also be fetched via db.model('Album') etc.
 
 module.exports = {
-  Post: Post,
+  Posts: Posts,
   User: User
 };
