@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import { connect } from'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
 import Navbar from '../Navbar/Navbar-component'
 import Footer from '../Footer/Footer-component'
 import { 
@@ -36,9 +35,7 @@ class RootComponent extends Component {
     Events.scrollEvent.remove('end');
   }
 
-  scrollToTop() {
-    animateScroll.scrollToTop();
-  }
+  
 
 	render() {
     
@@ -48,7 +45,7 @@ class RootComponent extends Component {
 	        {
 	          this.props.children && React.cloneElement(this.props.children, this.props)
 	        }
-	        <a onClick={this.scrollToTop}>To the top!</a>   
+	        
 	        <Footer />
       </div>
 		);
