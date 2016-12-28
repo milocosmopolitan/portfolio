@@ -9,7 +9,7 @@ import { connect } from'react-redux';
 
 /* -----------------    COMPONENT     ------------------ */
 
-class TestComponent extends Component {
+class ProjectsComponent extends Component {
 	constructor(props) {
 		super(props);		
 	}
@@ -17,8 +17,12 @@ class TestComponent extends Component {
 	render() {
     
 		return (
-			<div className="container">
-			</div>
+			<div>
+        <h1>This is project section</h1>
+        <p>
+          we will need to modifiy this part to show list of projects from database
+        </p>
+      </div>
 		);
 	}
 
@@ -32,4 +36,4 @@ const mapState = ({}, ownProps) => {
 
 const mapDispatch = {}
 
-export default connect(mapState, mapDispatch)(TestComponent);
+export default connect(mapState, mapDispatch)(ProjectsComponent);

@@ -6,6 +6,13 @@
 
 import React, { Component } from 'react';
 import { connect } from'react-redux';
+import Navbar from '../Navbar/Navbar-component'
+import Footer from '../Footer/Footer-component'
+import { 
+		Link, 
+		Events, 
+		animateScroll, 
+		scrollSpy } from 'react-scroll';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -13,13 +20,34 @@ class RootComponent extends Component {
 	constructor(props) {
 		super(props);		
 	}
+	componentDidMount() {
+    Events.scrollEvent.register('begin', function(to, element) {
+      console.log("begin", arguments);
+    });
+    Events.scrollEvent.register('end', function(to, element) {
+      console.log("end", arguments);
+    });
+    scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
+  
 
 	render() {
     
 		return (
-			<div className="container">
-			Root
-			</div>
+				<div>
+					<Navbar />
+	        {
+	          this.props.children && React.cloneElement(this.props.children, this.props)
+	        }
+	        
+	        <Footer />
+      </div>
 		);
 	}
 

@@ -1,0 +1,9 @@
+#navbar {
+	height: 50px;	
+	display: table;
+	position:fixed;	
+	.btn{
+		display: table-cell;
+    vertical-align: middle;
+	}
+}
