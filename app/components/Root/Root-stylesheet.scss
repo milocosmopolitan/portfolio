@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, span, p {
 	&.container, &.container-fluid {
 		background-color: $dark;
 	}
-	h1, h2, h3, h4, h5, span, p, label {
+	h1, h2, h3, h4, h5, span, p, label	 {
 		color: $light;
 	}
 }

@@ -13,6 +13,6 @@ const User = require('./Users');
 
 // let's keep export Model name to be singular
 module.exports = {
-  Post: Posts,
+  Post: Post,
   User: User
 };
