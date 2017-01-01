@@ -1,0 +1,33 @@
+/* 
+ * Root component stylesheet
+ * ==============================
+ */
+
+
+/* color */
+$light: #ffffff;
+$dark: #222222;
+
+h1, h2, h3, h4, h5, span, p {
+	color: $dark;
+}
+
+
+/* theme */
+.light-theme {
+	&.container, &.container-fluid {
+		background-color: $light;
+	}
+	h1, h2, h3, h4, h5, span, p, label {
+		color: $dark;
+	}
+}
+
+.dark-theme {
+	&.container, &.container-fluid {
+		background-color: $dark;
+	}
+	h1, h2, h3, h4, h5, span, p, label	 {
+		color: $light;
+	}
+}
