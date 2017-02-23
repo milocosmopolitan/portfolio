@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-import * as Reducers from './index-reducers';
+import * as Reducers from './reducers';
 
 /* Combine Reducers */
 function combine(reducers){
@@ -17,7 +17,6 @@ function combine(reducers){
 }
 
 const allReducers = combineReducers(combine(Reducers))
-
 
 /* Middleware */
 const logger = createLogger();

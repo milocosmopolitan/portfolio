@@ -5,21 +5,26 @@
   "main": "server/index.js",
   "preferGlobal": true,
   "author": "Milo Kang <milowebmaster@gmail.com>",
-  "contributors": [{
-    "name": "Dan Kang"
-  },{
-    "name": "Jimmy Wang"
-  }],
+  "contributors": [
+    {
+      "name": "Dan Kang"
+    },
+    {
+      "name": "Jimmy Wang"
+    }
+  ],
   "bin": {
     "exact": "node_modules/exact-cli/index.js"
   },
   "scripts": {
-    "start": "webpack -w & gulp sass:watch & nodemon --watch server -e js,html server/index.js",
+    "build": "webpack",
+    "build-watch": "webpack -w",
+    "start": "nodemon --watch server -e js,html server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli-init": "PATH=$(npm bin):$PATH exact && alias npm-exec=\"PATH=$(npm bin):$PATH\" && alias exact=\"npm-exec exact\"",
     "db-init": "./db-init.sh",
     "postinstall": "npm run db-init && npm run cli-init"
-  },  
+  },
   "license": "ISC",
   "dependencies": {
     "babel": "^6.5.2",
@@ -27,13 +32,16 @@
     "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.23.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.26.1",
     "exact-cli": "0.0.3",
     "express": "^4.14.0",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.0.0",
     "lodash": "^4.17.2",
+    "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",
@@ -47,9 +55,11 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "sequelize": "^3.27.0",
+    "sass-loader": "^4.1.1",
+    "sequelize": "^3.30.2",
+    "style-loader": "^0.13.1",
     "volleyball": "^1.4.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.13.3"
   },
   "devDependencies": {
     "exact-cli": "0.0.3"

@@ -5,9 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import { connect } from'react-redux';
-import Navbar from '../Navbar/Navbar-component'
-import Footer from '../Footer/Footer-component'
+import { connect } from 'react-redux';
+import { Navbar, Sidebar, Footer, Contact, Projects } from '../../components';
 import { 
 		Link, 
 		Events, 
@@ -33,19 +32,17 @@ class RootComponent extends Component {
   componentWillUnmount() {
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
-  }
-
-  
+  }  
 
 	render() {
     
 		return (
 				<div>
+					<Sidebar />
 					<Navbar />
 	        {
 	          this.props.children && React.cloneElement(this.props.children, this.props)
 	        }
-	        
 	        <Footer />
       </div>
 		);

@@ -6,9 +6,10 @@
 
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Projects from '../Projects/Projects-component';
-import Contact from '../Contact/Contact-component';
 
+import { Projects, Contact } from '../../components';
+
+// console.log(Projects, Contact)
 export default () => (
   <div>  	
     <Grid id="about" className="fullHeight light-theme" fluid={true}>
@@ -40,7 +41,7 @@ export default () => (
     <Grid id="projects" className="fullHeight light-theme" fluid={true}>
       <Row>
         <Col xs={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
-            <Projects />
+            {/*<Projects />*/}
         </Col>
       </Row>
     </Grid>    
@@ -48,7 +49,7 @@ export default () => (
     <Grid id="contact" className="fullHeight dark-theme" fluid={true}>
       <Row>
         <Col xs={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
-            <Contact />
+            {/*<Contact />*/}
         </Col>
       </Row>
     </Grid> 

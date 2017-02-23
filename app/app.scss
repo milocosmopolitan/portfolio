@@ -1,4 +1,5 @@
-@import './components/Root/Root-stylesheet';
-@import './components/Home/Home-stylesheet';
-@import './components/Navbar/Navbar-stylesheet';
-@import './components/Footer/Footer-stylesheet';
+@import './routes/Root/stylesheet.scss';
+@import './routes/Home/stylesheet.scss';
+@import './components/Navbar/stylesheet.scss';
+@import './components/Sidebar/stylesheet.scss';
+@import './components/Footer/stylesheet.scss';

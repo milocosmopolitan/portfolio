@@ -45,27 +45,27 @@ export default function reducer (projects = [], action) {
 
 /* ------------       DISPATCHERS     ------------------ */
 
-export const fetchProjects = () => dispatch => {
-    axios.get('/api/projects')
-         .then(res => dispatch(init(res.data)))
-         .catch(err => console.error('Fetching projects unsuccesful', err));
-};
+// export const fetchProjects = () => dispatch => {
+//     axios.get('/api/projects')
+//          .then(res => dispatch(init(res.data)))
+//          .catch(err => console.error('Fetching projects unsuccesful', err));
+// };
 
-// optimistic
-export const removeProject = id => dispatch => {
-    dispatch(remove(id));
-    axios.delete(`/api/projects/${id}`)
-         .catch(err => console.error(`Removing project: ${id} unsuccesful`, err));
-};
+// // optimistic
+// export const removeProject = id => dispatch => {
+//     dispatch(remove(id));
+//     axios.delete(`/api/projects/${id}`)
+//          .catch(err => console.error(`Removing project: ${id} unsuccesful`, err));
+// };
 
-export const addProject = project => dispatch => {
-    axios.post('/api/projects', project)
-         .then(res => dispatch(create(res.data)))
-         .catch(err => console.error(`Creating project: ${project} unsuccesful`, err));
-};
+// export const addProject = project => dispatch => {
+//     axios.post('/api/projects', project)
+//          .then(res => dispatch(create(res.data)))
+//          .catch(err => console.error(`Creating project: ${project} unsuccesful`, err));
+// };
 
-export const updateProject = (id, project) => dispatch => {
-    axios.put(`/api/projects/${id}`, project)
-         .then(res => dispatch(update(res.data)))
-         .catch(err => console.error(`Updating project: ${project} unsuccesful`, err));
-};
+// export const updateProject = (id, project) => dispatch => {
+//     axios.put(`/api/projects/${id}`, project)
+//          .then(res => dispatch(update(res.data)))
+//          .catch(err => console.error(`Updating project: ${project} unsuccesful`, err));
+// };

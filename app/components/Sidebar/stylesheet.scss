@@ -1,0 +1,180 @@
+#sidebar {
+  position: fixed;
+  height: 100vh;  
+  z-index: 1000;
+}
+
+.menu {
+  width: 500px;
+  height: 100%;
+  background-color: #222222;
+  display: flex;
+  padding: 20px 20px 20px 120px;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+
+  &.open {
+    opacity: 1;    
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  &:after{
+    display: none;
+  }
+
+  >div{
+    width: 100%;
+  }
+
+  ul {
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+li {
+  list-style: none;
+}
+/* Effect 4: Slide along */
+.menu {
+  opacity: 0;    
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+
+#btn-menu {
+  cursor: pointer;
+  width: 50px;
+  height: 44px;
+  position: fixed;
+  z-index: 14;
+  top: 64px;
+  left: 24px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  
+}
+#btn-menu .top,
+#btn-menu .middle,
+#btn-menu .bottom {
+  display: block;
+  width: 50px;
+  height: 6px;
+  background: #e5e5e5;
+  position: absolute;
+  left: 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: alpha(opacity=100);
+}
+#btn-menu .top {
+  top: 0px;
+}
+#btn-menu .middle {
+  top: 12px;
+}
+#btn-menu .bottom {
+  top: 24px;
+}	
+#btn-menu.top {
+  top: 20px;
+}
+#btn-menu.open {
+	top: calc(50vh - 22px);  
+}
+#btn-menu.open .middle {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: alpha(opacity=0);
+}
+#btn-menu.open:hover span {
+  background: #b46357;
+}
+#btn-menu.open .top {
+  top: 20px !important;
+  -moz-transform: scale(1) rotate(45deg) !important;
+  -webkit-transform: scale(1) rotate(45deg) !important;
+  -o-transform: scale(1) rotate(45deg) !important;
+  -ms-transform: scale(1) rotate(45deg) !important;
+  transform: scale(1) rotate(45deg) !important;
+}
+#btn-menu.open .bottom {
+  top: 20px !important;
+  -moz-transform: scale(1) rotate(-45deg) !important;
+  -webkit-transform: scale(1) rotate(-45deg) !important;
+  -o-transform: scale(1) rotate(-45deg) !important;
+  -ms-transform: scale(1) rotate(-45deg) !important;
+  transform: scale(1) rotate(-45deg) !important;
+}
+.border-top,
+.border-bottom,
+.border-left,
+.border-right {
+  position: absolute;
+  background: #e5e5e5;
+  z-index: 10;
+}
+.border-top,
+.border-bottom {
+  height: 24px;
+  left: 20px;
+  right: 20px;
+}
+.border-left,
+.border-right {
+  width: 24px;
+  top: 20px;
+  bottom: 20px;
+}
+.border-top {
+  top: 20px;
+}
+.border-bottom {
+  bottom: 20px;
+}
+.border-left {
+  left: 20px;
+}
+.border-right {
+  right: 20px;
+}
+
+#btn-menu:hover .top {
+  top: 13px;
+  -moz-transform: scale(1) rotate(90deg);
+  -webkit-transform: scale(1) rotate(90deg);
+  -o-transform: scale(1) rotate(90deg);
+  -ms-transform: scale(1) rotate(90deg);
+  transform: scale(1) rotate(90deg);
+}
+#btn-menu:hover .bottom {
+  top: 13px;
+  -moz-transform: scale(1) rotate(-90deg);
+  -webkit-transform: scale(1) rotate(-90deg);
+  -o-transform: scale(1) rotate(-90deg);
+  -ms-transform: scale(1) rotate(-90deg);
+  transform: scale(1) rotate(-90deg);
+}

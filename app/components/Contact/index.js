@@ -10,7 +10,7 @@ import {
 	FormGroup, ControlLabel, FormControl,
 	Grid, Row, Col 
 } from 'react-bootstrap';
-import { validateEmail } from './Contact-reducer'
+import { validateEmail } from './reducer'
 
 /* -----------------    COMPONENT     ------------------ */
 
