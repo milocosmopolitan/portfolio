@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-scroll';
 var classNames = require('classnames');
 
 export default class Sidebar extends React.Component {
@@ -41,28 +42,49 @@ export default class Sidebar extends React.Component {
 				</div>
 
 		  	<div className={classNames('menu', {open: this.state.menuStatus})}>
-		  		<div className="contact-info">
-		  			<div>Contact</div>
-		  			<div>
-		  				<div>Milo Kang</div>
-		  				<div>Fullstack Developer</div>
-		  				<div>New York, USA</div>
-		  			</div>
-		  		</div>
-		  		<div>
-			  		<ul>	
-			  			<li>About</li>
-			  			<li>Projects</li>
-			  			<li>Blog</li>
-			  			<li>Contact</li>  			
-			  		</ul>
-		  		</div>
-		  		<div>
-		  			Copyright 2017 © Milo Kang
-		  		</div>
-		  	</div>
-
-		  </div>		
+		  		<div className="menuButtons">
+			  		<div className="menuButton">
+			    		<Link 
+								activeClass="active" 
+								className="homeLink"
+								to="home" 
+								offset={0}
+								spy={true} smooth={true} duration={500}>
+								Home
+							</Link>
+						</div>
+			  		<div className="menuButton">
+			    		<Link 
+								activeClass="active" 
+								className="aboutLink"
+								to="skills" 
+								offset={140}
+								spy={true} smooth={true} duration={500}>
+								About
+							</Link>
+						</div>
+						<div className="menuButton">
+				  		<Link 
+								activeClass="active" 
+								className="projectsLink"
+								to="project" 
+								offset={140}
+								spy={true} smooth={true} duration={500}>
+				  			Projects
+							</Link>
+			  		</div>
+			  	</div>
+			  	<div className="contactSocial">
+			  		<p>Contact Me</p>
+	            <a href="https://linkedin.com/in/danielkang415"><i className="fa fa-linkedin fa-2x"></i></a>
+	            <a href="https://github.com/dkinsk"><i className="fa fa-github-alt fa-2x"></i></a>
+	            <a href="https://twitter.com/dkang415"><i className="fa fa-twitter fa-2x"></i></a>
+				  	<div>
+		          <a href="mailto:dankwebdev@gmail.com" target="_top"><i className="fa fa-envelope fa-2x"></i></a>
+		        </div>
+			  	</div>
+			  </div>
+		  </div>
 		)
 	}
 }

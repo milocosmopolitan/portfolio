@@ -5,14 +5,12 @@
 }
 
 .menu {
-  width: 500px;
+  width: 150px;
   height: 100%;
-  background-color: #222222;
+  background-color: #123650;
   display: flex;
-  padding: 20px 20px 20px 120px;
-  justify-content: space-between;
+  padding: 20px 20px 20px 20px;
   flex-direction: column;
-  align-items: flex-start;
   color: white;
 
   &.open {
@@ -28,12 +26,41 @@
     width: 100%;
   }
 
-  ul {
-    font-size: 40px;
-    margin: 0;
+  a {
+    color: #a5b1b9;
+  }
+
+  a:hover {
+    color: aliceblue;
+  }
+
+  .menuButtons {
+    position: absolute;
+    top: calc(50% - 158px);
+  }
+
+  .menuButton {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    margin-top: 1em;
     padding: 0;
   }
+
+  .contactSocial {
+    position: absolute;
+    bottom: 5%;
+    p {
+      color: #a5b1b9;
+    }
+    div {
+      width:none;
+    }
+    .fa {
+      margin: 4px;
+    }
+  }
 }
+
 
 li {
   list-style: none;
@@ -57,8 +84,8 @@ li {
   height: 44px;
   position: fixed;
   z-index: 14;
-  top: 64px;
-  left: 24px;
+  top: 35px;
+  left: 10px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -69,10 +96,11 @@ li {
 #btn-menu .top,
 #btn-menu .middle,
 #btn-menu .bottom {
+  margin-left: 10px;
   display: block;
   width: 50px;
   height: 6px;
-  background: #e5e5e5;
+  background: #f36142;
   position: absolute;
   left: 0px;
   -webkit-transition: all 0.3s ease-in-out;
@@ -99,9 +127,11 @@ li {
 #btn-menu.top {
   top: 20px;
 }
-#btn-menu.open {
-	top: calc(50vh - 22px);  
-}
+
+// #btn-menu.open {
+// 	top: calc(50vh - 22px);  
+// } 
+
 #btn-menu.open .middle {
   -moz-opacity: 0;
   -khtml-opacity: 0;

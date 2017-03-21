@@ -6,44 +6,54 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Navbar, Sidebar, Footer, Contact, Projects } from '../../components';
-import { 
-		Link, 
-		Events, 
-		animateScroll, 
-		scrollSpy } from 'react-scroll';
+// import { Navbar, Sidebar, Footer, Contact, Projects } from '../../components';
+// import { 
+// 		Link, 
+// 		Events, 
+// 		animateScroll, 
+// 		scrollSpy } from 'react-scroll';
+// import { Grid } from 'react-bootstrap';
+
 
 /* -----------------    COMPONENT     ------------------ */
 
 class RootComponent extends Component {
 	constructor(props) {
-		super(props);		
+		super(props);
+		this.handleScroll = this.handleScroll.bind(this);
 	}
 	componentDidMount() {
-    Events.scrollEvent.register('begin', function(to, element) {
-      console.log("begin", arguments);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+  
+  handleScroll(event) {
+    
+    const chaps = document.getElementsByClassName('chapters');
+    const chapters = document.getElementsByClassName('chapter');
+
+   	let yPos = [];
+   	yPos.push(chaps[0].offsetTop); 
+
+    Array.prototype.forEach.call(chapters, function(chapter, index) {
+    	if(index===0) yPos[0] = yPos[0] * 0.9; 
+    	yPos.push(chapter.offsetHeight + yPos[index])
     });
-    Events.scrollEvent.register('end', function(to, element) {
-      console.log("end", arguments);
-    });
-    scrollSpy.update();
+
+    for(let i = 0; i < yPos.length-1; i++) {
+      window.scrollY >= yPos[i] ? chapters[i].className = 'chapter current' : chapters[i].className = 'chapter';
+    }
   }
 
-  componentWillUnmount() {
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
-  }  
 
 	render() {
-    
 		return (
 				<div>
-					<Sidebar />
-					<Navbar />
 	        {
 	          this.props.children && React.cloneElement(this.props.children, this.props)
 	        }
-	        <Footer />
       </div>
 		);
 	}

@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import { connect } from'react-redux';
 import { 
 	FormGroup, ControlLabel, FormControl,
-	Grid, Row, Col 
+	Grid, Row, Col, Button
 } from 'react-bootstrap';
 import { validateEmail } from './reducer'
 
@@ -22,14 +22,12 @@ class ContactComponent extends Component {
 	}	
 
 	render() {
-    
 		return (
-			<div>
-        <h1>This is contact section</h1>
+			<div id="my-form">
         <form id="contact-form">
         	<Grid fluid={true}>
-      			<Row>
-        			<Col xs={12} md={6}>
+      			<Row id="cForm-input">
+        			<Col xs={12} md={8}>
         				<FormGroup controlId="name">
 						      <ControlLabel>Contact Name</ControlLabel>
 						      <FormControl 
@@ -39,7 +37,6 @@ class ContactComponent extends Component {
 						      	required
 						       />      
 						    </FormGroup>
-
         				<FormGroup controlId="email">
 				          <ControlLabel>Email</ControlLabel>
 				          <FormControl
@@ -57,15 +54,16 @@ class ContactComponent extends Component {
 				            placeholder="Enter your phone number"
 				          />
 				        </FormGroup>				        
-        			</Col>
-        			<Col xs={12} md={6}>
         				<FormGroup controlId="text">
 				          <ControlLabel>Text</ControlLabel>				          				          
 						      <FormControl 
 						      	componentClass="textarea" 
 						      	value=""
-						      	placeholder="Tell me what you want" />							    
-				        </FormGroup>
+						      	placeholder="How can I help you?" />				        
+						    </FormGroup>
+						    <Button type="submit">
+      						Submit
+    						</Button>
         			</Col>
       			</Row>
     			</Grid>        	

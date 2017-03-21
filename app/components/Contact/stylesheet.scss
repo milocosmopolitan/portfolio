@@ -1,7 +1,21 @@
+.message {
+	position: absolute;
+}
+
 #contact-form {
-
-
+	padding-left: 150px;
+	width: 50vw;
+	font-color: #f36142;
 	#text {
 		height: 182px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	#contact-form {
+		padding-left: 20%;
+	}
+	#cForm-input {
+		width: 300px;
 	}
 }

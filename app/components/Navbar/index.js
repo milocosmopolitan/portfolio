@@ -12,7 +12,8 @@ export default () => (
     		<Link 
 					activeClass="active" 
 					className="aboutLink"
-					to="about" 
+					to="skills" 
+					offset={200}
 					spy={true} smooth={true} duration={500}>
 					About
 				</Link>
@@ -21,7 +22,8 @@ export default () => (
     		<Link 
 					activeClass="active" 
 					className="projectsLink"
-					to="projects" 
+					to="project" 
+					offset={200}
 					spy={true} smooth={true} duration={500}>
 			  	Projects
 				</Link>
@@ -31,6 +33,7 @@ export default () => (
 					activeClass="active" 
 					className="contactLink"
 					to="contact" 
+					offset={200}
 					spy={true} smooth={true} duration={500}>
 		    	Contact
 		  	</Link>
